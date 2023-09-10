@@ -30,9 +30,20 @@ function Cast() {
       <ul>
         {cast.map(actor => (
           <li key={actor.id}>
+            <img
+              style={{ width: '100px' }}
+              // src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
+              // src={`'/src/images/HollywoodStar.png'`}
+              src={
+                actor.profile_path
+                  ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
+                  : '../images/HollywoodStar.png'
+              }
+              alt={actor.original_name}
+            />
             <p>{actor.name}</p>
             <p>{actor.character}</p>
-            <p></p>
+            {/* <p></p> */}
           </li>
         ))}
       </ul>

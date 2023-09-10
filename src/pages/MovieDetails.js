@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { API_KEY } from '../services/movieApi'; // Corrección en la importación
 
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 function MovieDetails() {
   const { movieId } = useParams();
@@ -55,7 +55,9 @@ function MovieDetails() {
       </div>
       <h3>cast</h3>
       <Link to={`/movies/${movieId}/cast`}>Ver Reparto</Link>
-
+      
+      <Link to={`/movies/${movieId}/reviews`}>Ver reviews</Link>
+      <Outlet />
       {/* <Link to={`${movieDetails.id}/credits`}>{movieDetails.title}</Link> */}
       {/* <Link to={`${movieDetails.id}`}>{movieDetails.title}</Link> */}
     </div>
