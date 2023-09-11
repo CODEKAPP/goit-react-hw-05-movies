@@ -5,7 +5,7 @@ function NotFound() {
   return (
     <section>
       <Header showBackButton={true} />
-      <h1>404 - Página no encontrada</h1>
+      <h1>404 - Page not found</h1>
     </section>
   );
 }
