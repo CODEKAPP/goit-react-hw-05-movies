@@ -13,11 +13,11 @@ const Reviews = lazy(() => import('../pages/Reviews'));
 
 function App() {
   return (
-    <Router>
+    <Router basename="/goit-react-hw-05-movies">
       {/* <Suspense fallback={<div>Loading...</div>}> */}
       <Suspense fallback={<div>{<Loader />}...</div>}>
         {/* <Header /> Agrega tu componente de encabezado aquí */}
-        <Routes basename="/goit-react-hw-05-movies">
+        <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies />} />
           {/* <Route path="/movies/:movieId" element={<MovieDetails />} /> */}
