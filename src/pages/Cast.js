@@ -25,28 +25,58 @@ function Cast() {
   }, [movieId]);
 
   return (
-    <div>
-      <h2>Reparto</h2>
-      <ul>
-        {cast.map(actor => (
-          <li key={actor.id}>
-            <img
-              style={{ width: '100px' }}
-              // src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
-              // src={`'/src/images/HollywoodStar.png'`}
-              src={
-                actor.profile_path
-                  ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
-                  : '../images/HollywoodStar.png'
-              }
-              alt={actor.original_name}
-            />
-            <p>{actor.name}</p>
-            <p>{actor.character}</p>
-            {/* <p></p> */}
-          </li>
-        ))}
-      </ul>
+    <div className="">
+      <h4>Cast</h4>
+      {cast.length > 0 ? (
+        <ul
+          className=""
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'flex-end',
+            justifyContent: 'space-around',
+          }}
+        >
+          {cast.map(actor => (
+            <li
+              className=""
+              key={actor.id}
+              style={{ display: 'flex', flexWrap: 'wrap' }}
+            >
+              <div
+                className=""
+                style={{
+                  width: '230px',
+                  height: '280px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'space-around',
+                }}
+              >
+                <img
+                  className="img-thumbnail"
+                  style={{ width: '120px' }}
+                  src={
+                    actor.profile_path
+                      ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
+                      : '../images/HollywoodStar.png'
+                  }
+                  alt={actor.original_name}
+                />
+                <div className="fw-bold" style={{ maxWidth: '220px' }}>
+                  <p>{actor.name}</p>
+                  <p>{actor.character}</p>
+                </div>
+              </div>
+
+              {/* <p></p> */}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>We don't have any cast for this movie.</p>
+      )}
     </div>
   );
 }

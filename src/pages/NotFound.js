@@ -1,10 +1,12 @@
 import React from 'react';
+import Header from 'components/Header';
 
 function NotFound() {
   return (
-    <div>
+    <section>
+      <Header showBackButton={true} />
       <h1>404 - Página no encontrada</h1>
-    </div>
+    </section>
   );
 }
 

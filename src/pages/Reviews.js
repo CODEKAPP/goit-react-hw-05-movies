@@ -10,30 +10,35 @@ function Reviews() {
 
   useEffect(() => {
     // Llamada a la API para obtener reseñas de la película
-    axios.get(`https://api.themoviedb.org/3/movie/${movieId}/reviews`, {
-      params: {
-        api_key: API_KEY, // Reemplaza con tu clave de API
-      },
-    })
-    .then((response) => {
-      setReviews(response.data.results);
-    })
-    .catch((error) => {
-      console.error('Error al obtener reseñas', error);
-    });
+    axios
+      .get(`https://api.themoviedb.org/3/movie/${movieId}/reviews`, {
+        params: {
+          api_key: API_KEY, // Reemplaza con tu clave de API
+        },
+      })
+      .then(response => {
+        setReviews(response.data.results);
+      })
+      .catch(error => {
+        console.error('Error al obtener reseñas', error);
+      });
   }, [movieId]);
 
   return (
     <div>
-      <h2>Reseñas</h2>
-      <ul>
-        {reviews.map((review) => (
-          <li key={review.id}>
-            <h3>{review.author}</h3>
-            <p>{review.content}</p>
-          </li>
-        ))}
-      </ul>
+      <h4>Reviews</h4>
+      {reviews.length > 0 ? (
+        <ul className="list-group list-group-flush">
+          {reviews.map(review => (
+            <li className="list-group-item" key={review.id}>
+              <h3>{review.author}</h3>
+              <p>{review.content}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>We don't have any reviews for this movie.</p>
+      )}
     </div>
   );
 }
